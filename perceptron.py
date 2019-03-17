@@ -14,6 +14,7 @@ def train(theta,x,y):
             theta[0]+=alpha*(xyi[1]-ir)*xyi[0][0] #更新第一个属性的权值
             theta[1]+=alpha*(xyi[1]-ir)*xyi[0][1] #更新第二个属性的权值
             theta[2]+=alpha*(xyi[1]-ir) #更新偏置值
+            print(theta)
             predict(theta,x)
             train(theta,x,y)
     return theta
@@ -30,12 +31,11 @@ def predict(theta,x):
 
 if __name__=='__main__':
     x=[(1,1),(1,1.8),(1,1.2),(-1,-1),(1,1.7)]
-    #x.append(())
-    y=[1,1,1,-1,1]
+    y=[1,-1,-1,-1,-1]
     w=[-0.5,0.6,0.7] 
     w=train(w,x,y)
     r=predict(w,x) 
-    print(y)
-    print(r)
+    print('真实值为',y)
+    print('预测值为',r)
     
     
